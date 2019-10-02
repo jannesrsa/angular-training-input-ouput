@@ -1,0 +1,18 @@
+<div class="card-deck bg-info">
+    Name: {{customer.name}}
+</div>
+
+<div class="card-deck bg-info">
+    Name: {{customer.name}}
+</div>
+
+<div class="card"
+     style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{customer.name}}</li>
+        <li class="list-group-item">{{customer.address.city}}</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+</div>
+
+<button type="button" class="btn btn-primary" (click)="change()">Change Customer</button>
