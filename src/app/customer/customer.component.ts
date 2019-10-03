@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
   customer: any;
+  parentCount: number;
 
   constructor() { }
 
   ngOnInit() {
+    this.parentCount = 1000;
+
     this.customer = {
       name: 'James Doe',
       address:
@@ -20,8 +23,16 @@ export class CustomerComponent implements OnInit {
     };
   }
 
-  changed(customer : any){
-    this.customer = customer;
+  changed(count: number) {
+    this.parentCount = count;
+
+    this.customer = {
+      name: 'James Doe: ' + count,
+      address:
+      {
+        city: 'Cape Town: ' + count
+      }
+    };;
   }
 
 }

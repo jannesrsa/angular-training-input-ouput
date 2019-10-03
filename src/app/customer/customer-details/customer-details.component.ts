@@ -1,13 +1,14 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
-  styleUrls: ['./customer-details.component.css']
+  styleUrls: ['./customer-details.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomerDetailsComponent implements OnInit {
-  @Input() customer: any;
-  @Output() customerChanged = new EventEmitter<any>();
+  @Input() childCount: number;
+  @Output() _changed = new EventEmitter<number>();
 
   constructor() { }
 
@@ -15,8 +16,7 @@ export class CustomerDetailsComponent implements OnInit {
   }
 
   change(): void {
-    this.customer.name = "Michelle Doe";
-    this.customerChanged.emit(this.customer);
+    this.childCount++;
+    this._changed.emit(this.childCount);
   }
-
 }

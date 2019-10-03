@@ -1,5 +1,10 @@
 <div class="container">
-    <div class='m-5 bg-danger display-4'>Customer</div>
+    <div class='bg-danger display-4'>Customer - {{customer.name}}</div>
     <br />
-    <app-customer-details [customer]="customer" (customerChanged)="changed($event)"></app-customer-details>
+    <input type="text"
+           class="form-control"
+           [(ngModel)]="parentCount">
+
+    <app-customer-details [childCount]="parentCount"
+                          (_changed)="changed($event)"></app-customer-details>
 </div>
